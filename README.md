@@ -14,8 +14,7 @@ corresponding analytical solution to verify the numerical implementation.
 The governing Poisson equation is
 
 $$
-\nabla^2 T =
-32\left[x(x-1)+y(y-1)\right]
+\nabla^2 T = 32\left[x(x-1)+y(y-1)\right]
 $$
 
 or
@@ -25,7 +24,7 @@ $$
 +
 \frac{\partial^2 T}{\partial y^2}
 =
-32\left[x(x-1)+y(y-1)\right].
+32\left[x(x-1)+y(y-1)\right]
 $$
 
 The equation is solved over a two-dimensional structured domain with
@@ -45,11 +44,11 @@ a_E T_E +
 a_W T_W +
 a_N T_N +
 a_S T_S +
-b.
+b
 $$
 
 For the uniform structured grid used in this project, the discretization
-results in the familiar five-point neighboring-cell stencil.
+results in a five-point neighboring-cell stencil.
 
 The resulting algebraic equations are solved iteratively using the
 Successive Over-Relaxation (SOR) method.
@@ -61,7 +60,7 @@ T_P^{new}
 =
 (1-\omega)T_P^{old}
 +
-\omega T_P^{*},
+\omega T_P^{*}
 $$
 
 where $\omega$ is the relaxation factor.
@@ -69,14 +68,14 @@ where $\omega$ is the relaxation factor.
 The relaxation factor used in the computation is
 
 $$
-\omega = 1.95.
+\omega = 1.95
 $$
 
 The iterative solution is considered converged when the maximum change in
 the solution between successive iterations falls below
 
 $$
-10^{-3}.
+10^{-3}
 $$
 
 ## Computational Details
@@ -108,7 +107,7 @@ T(x,y)
 x^4-2x^3+x
 +
 y^4-2y^3+y
-\right].
+\right]
 $$
 
 The analytical solution is evaluated over the same computational domain and
