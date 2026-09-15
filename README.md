@@ -160,7 +160,7 @@ $y=0.5$.
 Comparison of the analytical and numerical solutions along the line
 $x=0.5$.
 
-![Temperature at x = 0.5](T%20vs%20x%3D0.5.png)
+![Temperature at x = 0.5](Tvs%20x%3D0.5.png)
 
 ## Verification
 
