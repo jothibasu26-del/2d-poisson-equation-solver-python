@@ -7,7 +7,7 @@ varying source term using the Finite Volume Method (FVM) on a structured grid.
 
 The resulting algebraic system is solved iteratively using the Successive
 Over-Relaxation (SOR) method. The numerical solution is compared with the
-corresponding analytical solution to verify the numerical implementation.
+analytical solution to verify the numerical implementation.
 
 ## Problem Definition
 
@@ -47,8 +47,8 @@ a_S T_S +
 b
 ```
 
-For the uniform structured grid used in this project, the discretization
-results in a five-point neighboring-cell stencil.
+For the structured uniform grid used in this project, the discretization
+involves the four neighboring control volumes.
 
 The resulting algebraic equations are solved iteratively using the
 Successive Over-Relaxation (SOR) method.
@@ -93,25 +93,21 @@ the solution between successive iterations falls below
 
 ## Analytical Solution
 
-An analytical solution is used as a reference to verify the numerical
-solution.
+An analytical solution is used as a reference for verification of the
+numerical solution.
 
 For the prescribed source term and boundary conditions, the analytical
 solution is
 
 ```math
-T(x,y)
-=
-\frac{8}{3}
-\left[
-x^4-2x^3+x
-+
-y^4-2y^3+y
-\right]
+T(x,y) = 16x(x-1)y(y-1)
 ```
 
-The analytical solution is evaluated and compared with the numerical FVM
-solution.
+The analytical solution satisfies the governing Poisson equation and the
+prescribed zero-value boundary conditions.
+
+It is evaluated over the computational domain and compared with the
+numerical FVM solution.
 
 ## Solution Procedure
 
@@ -120,7 +116,7 @@ The numerical solution procedure consists of:
 1. Defining the structured computational grid.
 2. Evaluating the spatially varying source term.
 3. Formulating the control-volume balance for each cell.
-4. Constructing the neighboring-cell coefficients.
+4. Calculating the neighboring-cell contributions.
 5. Applying the SOR iterative scheme.
 6. Monitoring the maximum change in the solution.
 7. Continuing the iteration until the specified convergence criterion is
@@ -166,7 +162,7 @@ $x=0.5$.
 The numerical FVM solution is compared with the analytical solution at
 selected locations within the computational domain.
 
-The close agreement between the analytical and numerical results demonstrates
+The agreement between the analytical and numerical solutions demonstrates
 that the finite-volume discretization and SOR iterative solution correctly
 reproduce the prescribed Poisson equation.
 
