@@ -13,19 +13,19 @@ corresponding analytical solution to verify the numerical implementation.
 
 The governing Poisson equation is
 
-$$
+```math
 \nabla^2 T = 32\left[x(x-1)+y(y-1)\right]
-$$
+```
 
 or
 
-$$
+```math
 \frac{\partial^2 T}{\partial x^2}
 +
 \frac{\partial^2 T}{\partial y^2}
 =
 32\left[x(x-1)+y(y-1)\right]
-$$
+```
 
 The equation is solved over a two-dimensional structured domain with
 prescribed zero-value boundary conditions.
@@ -38,14 +38,14 @@ the Finite Volume Method.
 The diffusion fluxes across the control-volume faces are evaluated and the
 resulting discretized equation is written in the form
 
-$$
+```math
 a_P T_P =
 a_E T_E +
 a_W T_W +
 a_N T_N +
 a_S T_S +
 b
-$$
+```
 
 For the uniform structured grid used in this project, the discretization
 results in a five-point neighboring-cell stencil.
@@ -55,28 +55,28 @@ Successive Over-Relaxation (SOR) method.
 
 The SOR update is expressed as
 
-$$
+```math
 T_P^{new}
 =
 (1-\omega)T_P^{old}
 +
 \omega T_P^{*}
-$$
+```
 
 where $\omega$ is the relaxation factor.
 
 The relaxation factor used in the computation is
 
-$$
+```math
 \omega = 1.95
-$$
+```
 
 The iterative solution is considered converged when the maximum change in
 the solution between successive iterations falls below
 
-$$
+```math
 10^{-3}
-$$
+```
 
 ## Computational Details
 
@@ -99,7 +99,7 @@ solution.
 For the prescribed source term and boundary conditions, the analytical
 solution is
 
-$$
+```math
 T(x,y)
 =
 \frac{8}{3}
@@ -108,10 +108,10 @@ x^4-2x^3+x
 +
 y^4-2y^3+y
 \right]
-$$
+```
 
-The analytical solution is evaluated over the same computational domain and
-compared with the numerical FVM solution.
+The analytical solution is evaluated and compared with the numerical FVM
+solution.
 
 ## Solution Procedure
 
