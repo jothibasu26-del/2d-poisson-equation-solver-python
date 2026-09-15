@@ -1,1 +1,169 @@
+# 2D Poisson Equation Solver with Spatially Varying Source | Python
 
+## Overview
+
+A numerical solution of the two-dimensional Poisson equation with a spatially
+varying source term using the finite-difference method and Successive
+Over-Relaxation (SOR).
+
+The project compares the numerical solution obtained from the Python solver
+with the corresponding analytical solution to verify the accuracy of the
+numerical method.
+
+## Problem Definition
+
+The governing Poisson equation is
+
+$$
+\nabla^2 T =
+32\left[x(x-1)+y(y-1)\right]
+$$
+
+or
+
+$$
+\frac{\partial^2 T}{\partial x^2}
++
+\frac{\partial^2 T}{\partial y^2}
+=
+32\left[x(x-1)+y(y-1)\right].
+$$
+
+The solution is obtained on a structured two-dimensional grid with prescribed
+zero boundary conditions.
+
+## Numerical Method
+
+The governing equation is discretized using a second-order central finite
+difference approximation.
+
+Using the five-point stencil,
+
+$$
+\frac{T_{i+1,j}-2T_{i,j}+T_{i-1,j}}{\Delta x^2}
++
+\frac{T_{i,j+1}-2T_{i,j}+T_{i,j-1}}{\Delta y^2}
+=
+S_{i,j}.
+$$
+
+The resulting algebraic equation is solved iteratively using the
+Successive Over-Relaxation (SOR) method.
+
+The SOR relaxation factor used in the computation is
+
+$$
+\omega = 1.95.
+$$
+
+The iterative process is continued until the maximum change in the solution
+between successive iterations falls below
+
+$$
+10^{-3}.
+$$
+
+## Computational Details
+
+| Parameter | Value |
+|---|---:|
+| Grid | 39 × 39 |
+| Grid spacing | $\Delta x = 1/(39+1)$ |
+| Discretization | Five-point finite difference |
+| Iterative solver | SOR |
+| Relaxation factor | 1.95 |
+| Convergence criterion | $10^{-3}$ |
+| Boundary conditions | $T = 0$ |
+
+## Analytical Solution
+
+The analytical solution provides a reference for verifying the numerical
+solution.
+
+For the prescribed source term and boundary conditions, the analytical
+solution is
+
+$$
+T(x,y)
+=
+\frac{8}{3}
+\left[
+x^4-2x^3+x
++
+y^4-2y^3+y
+\right].
+$$
+
+The analytical solution is evaluated on the same computational domain and
+compared with the numerical solution.
+
+## Implementation
+
+The numerical solver is implemented in Python.
+
+The solution procedure consists of:
+
+1. Defining the computational grid.
+2. Evaluating the spatially varying source term.
+3. Applying the five-point finite-difference stencil.
+4. Iteratively solving the discretized equation using SOR.
+5. Monitoring the maximum solution change for convergence.
+6. Exporting the converged numerical solution to a CSV file.
+
+MATLAB was used for post-processing and visualization of the analytical and
+numerical solutions.
+
+## Results
+
+### Analytical Solution
+
+The analytical solution is shown below.
+
+![Analytical Solution](analytical%20solution.png)
+
+### Numerical Solution
+
+The numerical solution obtained from the Python finite-difference solver is
+shown below.
+
+![Numerical Solution](numerical%20solution.png)
+
+### Temperature Distribution at y = 0.5
+
+The numerical distribution is compared with the analytical solution along
+the line $y=0.5$.
+
+![Temperature at y = 0.5](T%20vs%20y%3D0.5.png)
+
+### Temperature Distribution at x = 0.5
+
+The numerical distribution is compared with the analytical solution along
+the line $x=0.5$.
+
+![Temperature at x = 0.5](T%20vs%20x%3D0.5.png)
+
+## Verification
+
+The numerical solution is compared against the analytical solution at
+selected locations within the computational domain.
+
+The close agreement between the analytical and numerical solutions demonstrates
+that the finite-difference discretization and SOR iterative solution correctly
+reproduce the prescribed Poisson equation.
+
+## Skills Demonstrated
+
+- Python programming
+- Numerical methods
+- Finite-difference discretization
+- Elliptic partial differential equations
+- Five-point stencil formulation
+- Successive Over-Relaxation (SOR)
+- Iterative convergence analysis
+- Numerical solution verification
+- MATLAB post-processing and visualization
+
+## Software
+
+- Python
+- MATLAB
